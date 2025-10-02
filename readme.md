@@ -5,7 +5,7 @@ Among the many advantages of OFDM, one which will be focused in this project is 
 Disclaimer: This project focuses on a specific part of the implementation of a digital radio. Many of the lower levels of complexity are not represented neither in the simulations nor in the following text.
 
 # Orthogonal Frequency Division Multiplexing
-Orthogonal Frequency Division Multiplexing (OFDM) is a technique that allows for high speed transmissions on time dispersive channels. It adds a preprocessing stage before the symbols are sent over the radio. This preprocessing stage is responsible for spreading a signal accross many channels, comprised of different subcarriers.
+Orthogonal Frequency Division Multiplexing (OFDM) is a technique that allows for high speed transmissions on time dispersive channels. It adds a preprocessing stage before the symbols are sent over the radio. This preprocessing stage is responsible for spreading a signal accross many channels, sent over different subcarriers.
 
 ## Multiplexing
 A OFDM transmission uses an Inverse Discrete Fourier Transform (IDFT) to spread a set of symbols into different frequencies. This allows for the original signal to be recovered via a Discrete Fourier Transform at the output and also allows for the techniques described in the following sections to be applied.
@@ -33,8 +33,7 @@ z = convolve(x, y)
 
 However, the DFT is an operation applied to periodic signals, and so this property is only valid for periodic signals. This will hinder the direct application of this property in OFDM systems.
 
-To solve that, it is possible to make the channel "appear" periodic. Since the channel is modeled as a FIR filter with size P, it is only required that the `P` previous samples be periodic. Namely, if the channel filter has size two, the signal `[1, 2, 3, 4]`
-will "appear" periodic if the signal `[3, 4, 1, 2, 3, 4]` is sent through the channel.
+To solve that, it is possible to make the channel "appear" periodic. Since the channel is modeled as a FIR filter with size P, it is only required that the `P - 1` previous samples be periodic. Namely, if the channel filter has size three, the signal `[1, 2, 3, 4]` will "appear" periodic if the signal `[3, 4, 1, 2, 3, 4]` is sent through the channel.
 
 This technique is called a cyclic prefix and it provides a simple method to revert the effect of the channel.
 
@@ -103,4 +102,6 @@ The parameter `a` will determine how succeptible to noise the system will be and
 # Simulation
 The code for this project will apply the techniques presented in the previous section to simulate an OFDM system with channel estimation. The channel model is time-invariant and the noise introduced in the system is Additive White Gaussian Noise (AWGN).
 
-To run the simulation, the libraries `numpy`, `scipy` and `matplotlib` are required. Installing them to the environment and running the file `channel_estimation.py` should provide with a graph of the resulting simulation.
+To run the simulation, the libraries `numpy`, `scipy` and `matplotlib` are required. Installing them to the environment and running the file `channel_estimation.py` should provide with a graph of the resulting simulation with the Bit Error Rate (BER) result for each value of energy per bit to noise power spectral density ratio (Eb/N0).
+
+![Simulation result](https://github.com/Gusgo99/ofdm-channel_estimation/blob/main/images/ber_simulation.png)
