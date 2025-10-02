@@ -1,11 +1,11 @@
-OFDM is a technique used to multiplex a fast signal accross many different slower channels. It is widely used for wireless telecommunications and allows for the high data-rate found today in many mainstream technologies, such as Wi-Fi, 4G and 5G.
+Orthogonal Frequency Division Multiplexing (OFDM) is a technique used to multiplex a fast signal accross many different slower channels. It is widely used for wireless telecommunications and allows for the high data-rate found today in many mainstream technologies, such as Wi-Fi, 4G and 5G.
 
 Among the many advantages of OFDM, one which will be focused in this project is the ability of compensating the time-spreading nature of wireless channels.
 
 Disclaimer: This project focuses on a specific part of the implementation of a digital radio. Many of the lower levels of complexity are not represented neither in the simulations nor in the following text.
 
 # Orthogonal Frequency Division Multiplexing
-Orthogonal Frequency Division Multiplexing (OFDM) is a technique that allows for high speed transmissions on time dispersive channels. It adds a preprocessing stage before the symbols are sent over the radio. This preprocessing stage is responsible for spreading a signal accross many channels, sent over different subcarriers.
+OFDM allows for high speed transmissions on time dispersive channels. It adds a preprocessing stage before the symbols are sent over the radio. This preprocessing stage is responsible for spreading a signal accross many channels, sent over different subcarriers.
 
 ## Multiplexing
 A OFDM transmission uses an Inverse Discrete Fourier Transform (IDFT) to spread a set of symbols into different frequencies. This allows for the original signal to be recovered via a Discrete Fourier Transform at the output and also allows for the techniques described in the following sections to be applied.
@@ -87,7 +87,7 @@ X_pilots[pilotPositions] = pilotValues
 y_pilots = ifft(Y_pilots)
 x_pilots = ifft(X_pilots)
 
-// y_pilot can now be used for channel estimation
+// y_pilot and x_pilots can now be used for channel estimation
 ```
 
 ### Combining estimations
