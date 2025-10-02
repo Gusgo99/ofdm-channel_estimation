@@ -59,7 +59,7 @@ if showBerGraphs:
 	plt.semilogy(snrList, berNaiveEq, label = "Naive equalizer")
 	plt.semilogy(snrList, berLMMSE, label = "LMMSE equalizer")
 	plt.legend()
-	plt.xlabel("SNR (dB)")
+	plt.xlabel("$E_b/N0$ (dB)")
 	plt.ylabel("BER")
 	plt.grid()
 else:
