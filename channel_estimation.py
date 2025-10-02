@@ -41,7 +41,7 @@ if showBerGraphs:
 	snrList = np.array([i for i in range(0, 12, 2)])
 	
 	runCount = 100
-	symbolCount = 65536
+	symbolCount = 16384
 
 	berIdeal = np.array([np.mean([simulate_transmission(snr, symbolCount, False, "None") for _ in range(runCount)]) for snr in snrList])
 	berNoEq = np.array([np.mean([simulate_transmission(snr, symbolCount, True, "None") for _ in range(runCount)]) for snr in snrList])
