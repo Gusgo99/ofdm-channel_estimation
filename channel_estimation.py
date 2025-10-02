@@ -4,11 +4,11 @@ import Modulation
 import OFDM
 import Channel
 
-pilotTimeSpacing = 32
-pilotFreqSpacing = 8
-
 N = 1024
 CPSize = 16
+
+pilotTimeSpacing = 32
+pilotFreqSpacing = N // (4 * CPSize)
 
 rng = np.random.default_rng()
 
